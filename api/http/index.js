@@ -6,7 +6,7 @@ const URL = require('url');
 
 const HOST = 'http://music.163.com';
 
-let _cookie = '';
+let _cookie = 'aa';
 
 /**
  * 自定义的 http 请求
@@ -15,7 +15,8 @@ let _cookie = '';
  * @param{Object} options: 配置
  * @returns{Promise}
  */
-const _http = (method, path, { query = {}, data = {}, cookie = _cookie }) => {
+const _http = (method, path, { query = {}, data = {} }) => {
+
 
     const cryptoreq = encrypt(data);
     let _path = path;
@@ -36,7 +37,7 @@ const _http = (method, path, { query = {}, data = {}, cookie = _cookie }) => {
             'Content-Type': 'application/x-www-form-urlencoded',      // from 形式
             'Referer': HOST,
             'Host': URL.parse(HOST).host,
-            'Cookie': cookie,
+            'Cookie': _cookie,
             'User-Agent': randomUserAgent(),
         },
         data: JSON.stringify(data),

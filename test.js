@@ -1,10 +1,12 @@
 // import * as api from './api';
 const api = require('./api');
+const { config } = require('./api/http');
 
+config.cookie = 'abc';
 
 (async () => {
     console.time('run');
-    // const res = await api.musicURL([347230, 347231]);
+    const res = await api.musicURL([347230, 347231]);
     // const res = await api.search('时间');
     // const res = await api.searchSuggest('时间');
     // const res = await api.songListHighquality();
