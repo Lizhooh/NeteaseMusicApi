@@ -6,6 +6,8 @@ const URL = require('url');
 
 const HOST = 'http://music.163.com';
 
+let _cookie = '';
+
 /**
  * 自定义的 http 请求
  * @param{String} method: http method
@@ -13,7 +15,7 @@ const HOST = 'http://music.163.com';
  * @param{Object} options: 配置
  * @returns{Promise}
  */
-const _http = (method, path, { query = {}, data = {}, cookie = '' }) => {
+const _http = (method, path, { query = {}, data = {}, cookie = _cookie }) => {
 
     const cryptoreq = encrypt(data);
     let _path = path;
@@ -48,10 +50,19 @@ const _http = (method, path, { query = {}, data = {}, cookie = '' }) => {
 }
 
 
-module.exports = {
-    config: {
-        cookie: '',
+let config = {};
+
+Object.defineProperty(config, 'cookie', {
+    get: function () {
+        return _cookie;
     },
+    set: function (newValue) {
+        _cookie = newValue;
+    }
+});
+
+module.exports = {
+    config: config,
     get: (...args) => _http('GET', ...args),
     post: (...args) => _http('POST', ...args),
 }
