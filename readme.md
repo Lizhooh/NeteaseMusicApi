@@ -5,10 +5,59 @@
 
 <font color='red'>特点：</font>
 - 提供基本的 api
-- 支持 Promise：每个 api 都以 Promise 形式返回
+- 支持 ES6 Promise：每个 api 都以 Promise 形式返回
 - 纯函数编程：每个 api 都是一个纯函数，无副作用，单一输入，单一输出。
 
-<font color='red'>暂时提供的 API：（持续补充）</font>
+### 引入
+
+```bash
+npm install --save netease-music-api@https://github.com/Lizhooh/NeteaseMusicApi.git
+```
+
+### 使用
+
+```js
+const api = require('netease-music-api');
+
+(async () => {
+    console.time('run');
+    // const res = await api.musicURL([347230, 347231]);
+    const res = await api.topList(0);
+
+    console.log(JSON.stringify(res, null, 3));
+    console.timeEnd('run');
+})();
+```
+
+### cookie
+cookie 可以使用全局配置方式：
+
+```js
+const api = require('netease-music-api');
+const { config } = require('netease-music-api/http');
+
+console.log(config.cookie);       // ''
+config.cookie = 'abc';
+console.log(config.cookie);       // 'abc'
+
+// 全局配置后，每个 api 都会携带相同的 cookie
+api.musicURL([347230, 347231]);   // cookie = 'abc'
+```
+
+由于 cookie 提供**长期用户验证的密钥**，推荐把 cookie 存储在文件里，在应用启动时，从文件里读取 cookie。
+
+```js
+const fs = require('fs');
+const { config } = require('netease-music-api/http');
+// 通过文件来，设置 cookie
+config.cookie = fs.syncReadFile('./cookie.txt');
+```
+
+### 说明
+- 301 错误基本都是没登录就调用了需要登录的接口
+- 部分接口如登录接口不能调用太频繁,否则可能会触发503错误或者 ip 高频错误,若需频繁调用,需要准备 IP 代理池.
+
+### 暂时提供的 API：（持续补充）
 
 name | api
 --- | ---
@@ -34,6 +83,7 @@ mv 评论 | api.commentMv(5436712)
 电台节目评论 | 待定
 banner | 待定
 获取歌曲详情 | api.songDetail(347230)
+获取音乐 url | api.musicURL(347230)
 获取专辑内容 | api.album(32311)
 获取歌手单曲 | api.artists(6452)
 获取歌手 mv | api.artistMV(6452)
@@ -72,10 +122,4 @@ mv 排行 | api.topMv()
 电台-详情 | 待定
 电台-节目 | 待定
 给评论点赞 | 待定
-
-### 使用
-
-```bash
-
-```
 
