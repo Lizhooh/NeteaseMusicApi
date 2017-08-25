@@ -1,16 +1,17 @@
-## 网易云音乐 API for nodejs
+## 网易云音乐 Web API for Nodejs
 提供网易云音乐 api，可以轻易在任何 javascript （不存在同源限制）环境下使用，包括 nodejs, react-native, weex, electron 等。
 
 参考至：https://binaryify.github.io/NeteaseCloudMusicApi
 
-特点：
+<font color='red'>特点：</font>
 - 提供基本的 api
 - 支持 Promise：每个 api 都以 Promise 形式返回
 - 纯函数编程：每个 api 都是一个纯函数，无副作用，单一输入，单一输出。
 
-暂时提供的 API：
+<font color='red'>暂时提供的 API：（持续补充）</font>
 
 name | api
+--- | ---
 登录 | 待定
 刷新登录 | 待定
 获取用户信息,歌单，收藏，mv, dj 数量 | 待定
