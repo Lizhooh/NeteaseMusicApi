@@ -105,14 +105,68 @@ module.exports.lyric = function lyric(id) {
 }
 
 /**
+ * 歌曲评论
+ * @param{Number} id: 歌曲 id
+ * @param{Number} limit: 分页数量
+ * @param{Number} offset: 分页偏移量
+ * @returns{Promise}
+ */
+module.exports.commentMusic = function commentMusic(id, limit = 30, offset = 0) {
+    return post(`/weapi/v1/resource/comments/R_SO_4_${rid}/?csrf_token=`, {
+        data: {
+            rid: id,
+            limit,
+            offset,
+            csrf_token: ''
+        }
+    })
+}
+
+/**
  * 专辑评论
  * @param{Number} id: 专辑 id
  * @param{Number} limit: 分页数量
  * @param{Number} offset: 分页偏移量
  * @returns{Promise}
  */
-module.exports.commentAlbum = function commentAlbum(id, limit = 20, offset = 0) {
+module.exports.commentAlbum = function commentAlbum(id, limit = 30, offset = 0) {
     return post(`/weapi/v1/resource/comments/R_AL_3_${id}`, {
+        data: {
+            rid: id,
+            offset,
+            limit,
+            csrf_token: ''
+        }
+    })
+}
+
+/**
+ * 歌单评论
+ * @param{Number} id: 歌单 id
+ * @param{Number} limit: 分页数量
+ * @param{Number} offset: 分页偏移量
+ * @returns{Promise}
+ */
+module.exports.commentPlaylist = function commentPlaylist(id, limit = 30, offset = 0) {
+    return post(`/weapi/v1/resource/comments/A_PL_0_${id}/?csrf_token=`, {
+        data: {
+            rid: id,
+            offset,
+            limit,
+            csrf_token: ''
+        }
+    })
+}
+
+/**
+ * mv 评论
+ * @param{Number} id: mv id
+ * @param{Number} limit: 分页数量
+ * @param{Number} offset: 分页偏移量
+ * @returns{Promise}
+ */
+module.exports.commentMv = function commentMv(id, limit = 30, offset = 0) {
+    return post(`/weapi/v1/resource/comments/R_MV_5_${id}/?csrf_token=`, {
         data: {
             rid: id,
             offset,
@@ -148,6 +202,21 @@ module.exports.album = function album(id) {
             csrf_token: ''
         }
     })
+}
+
+/**
+ * 获取歌手单曲
+ * @param{Number} id: 歌手 id（可由搜索接口获得）
+ * @param{Number} limit: 分页数量
+ * @param{Number} offset: 分页偏移量
+ * @returns{Promise}
+ */
+module.exports.artists = function artists(id, limit = 20, offset = 0) {
+    return post(`/weapi/v1/artist/${id}?offset=${offset}&limit=${limit}`, {
+        data: {
+            csrf_token: ''
+        }
+    });
 }
 
 /**
