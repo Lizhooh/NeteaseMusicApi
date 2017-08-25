@@ -1,6 +1,7 @@
 ## 网易云音乐 API for nodejs
 提供网易云音乐 api，可以轻易在任何 javascript （不存在同源限制）环境下使用，包括 nodejs, react-native, weex, electron 等。
 
+参考至：https://binaryify.github.io/NeteaseCloudMusicApi
 
 特点：
 - 提供基本的 api
@@ -33,43 +34,43 @@ mv 评论 | api.commentMv(5436712)
 banner | 待定
 获取歌曲详情 | api.songDetail(347230)
 获取专辑内容 | api.album(32311)
-获取歌手单曲 |
-获取歌手 mv |
-获取歌手专辑 |
-获取歌手描述 |
-获取相似歌手 |
-获取相似歌单 |
-相似 mv  |
-获取相似音乐 |
-获取相似用户 |
-获取每日推荐歌单 |
-获取每日推荐歌曲 |
-私人 FM |
-签到 |
-喜欢音乐 |
-垃圾桶 |
-歌单(网友精选碟) |
-新碟上架 |
-热门歌手 |
-最新 mv |
-推荐 mv |
-推荐歌单 |
-推荐新音乐 |
-推荐电台 |
-推荐节目 |
-独家放送 |
-mv 排行 |
-获取 mv 数据 |
-播放 mv |
-排行榜 |
-云盘 |
-电台-推荐 |
-电台-分类 |
-电台-分类推荐 |
-电台-订阅 |
-电台-详情 |
-电台-节目 |
-给评论点赞 |
+获取歌手单曲 | api.artists(6452)
+获取歌手 mv | api.artistMV(6452)
+获取歌手专辑 | api.artistAlbum(6452)
+获取歌手描述 | api.artistDesc(6452)
+获取相似歌手 | api.simiArtist(6452)
+获取相似歌单 | api.simiPlaylist(347230)
+相似 mv  | api.simiMV(5436712)
+获取相似音乐 | api.simiSong(347230)
+获取相似用户 | api.simiUser(347230)
+获取每日推荐歌单 | 待定
+获取每日推荐歌曲 | 待定
+私人 FM | 待定
+签到 | 待定
+喜欢音乐 | 待定
+垃圾桶 | 待定
+歌单(网友精选碟) | api.topPlaylist()
+新碟上架 | api.topAlbum()
+热门歌手 | api.topArtists()
+最新 mv | api.mvFirst()
+推荐 mv | api.personalizedMv()
+推荐歌单 | api.personalized()
+推荐新音乐 | api.personalizedNewsong()
+推荐电台 | api.personalizedDjprogram()
+推荐节目 | api.programRecommend()
+独家放送 | api.personalizedPrivatecontent()
+mv 排行 | api.topMv()
+获取 mv 数据 | api.mv(5436712)
+播放 mv | api.mvUrl(url);
+排行榜 | api.topList(0)
+云盘 | 待定
+电台-推荐 | 待定
+电台-分类 | 待定
+电台-分类推荐 | 待定
+电台-订阅 | 待定
+电台-详情 | 待定
+电台-节目 | 待定
+给评论点赞 | 待定
 
 ### 使用
 
