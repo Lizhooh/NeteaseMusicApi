@@ -29,6 +29,8 @@ const api = require('netease-music-api');
 })();
 ```
 
+具体 api 参数，查阅 `/api/index.js` 文件。
+
 ### cookie
 cookie 可以使用全局配置方式：
 
