@@ -52,7 +52,7 @@ api.musicURL([347230, 347231]);   // cookie = 'abc'
 const fs = require('fs');
 const { config } = require('netease-music-api/http');
 // 通过文件来，设置 cookie
-config.cookie = fs.syncReadFile('./cookie.txt');
+config.cookie = fs.readFileSync('./cookie.txt');
 ```
 
 ### 说明
