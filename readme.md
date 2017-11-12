@@ -91,7 +91,7 @@ name | api
 歌单评论 | api.commentPlaylist(705123491)
 mv 评论 | api.commentMv(5436712)
 电台节目评论 | 待定
-banner | 待定
+banner（首页轮播图） | 待定
 获取歌曲详情 | api.songDetail(347230)
 获取音乐 url | api.musicURL(347230)
 获取专辑内容 | api.album(32311)
