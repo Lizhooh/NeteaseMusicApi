@@ -3,7 +3,7 @@
 
 参考至：https://binaryify.github.io/NeteaseCloudMusicApi
 
-<font color='red'>特点：</font>
+**特点：**
 - 提供基本的 api
 - 支持 ES6 Promise：每个 api 都以 Promise 形式返回
 - 纯函数编程：每个 api 都是一个纯函数，无副作用，单一输入，单一输出。
@@ -12,6 +12,14 @@
 
 ```bash
 npm install --save netease-music-api@https://github.com/Lizhooh/NeteaseMusicApi.git
+```
+
+### 测试
+
+```bash
+git clone @https://github.com/Lizhooh/NeteaseMusicApi.git
+npm install
+npm test
 ```
 
 ### 使用
@@ -56,8 +64,8 @@ config.cookie = fs.readFileSync('./cookie.txt');
 ```
 
 ### 说明
-- 301 错误基本都是没登录就调用了需要登录的接口
-- 部分接口如登录接口不能调用太频繁,否则可能会触发503错误或者 ip 高频错误,若需频繁调用,需要准备 IP 代理池.
+- 301 错误基本都是没登录就调用了需要登录的接口。
+- 部分接口如登录接口不能调用太频繁,否则可能会触发 503 错误或者 ip 高频错误，若需频繁调用,需要准备 IP 代理池。
 
 ### 暂时提供的 API：（持续补充）
 

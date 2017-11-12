@@ -6,7 +6,7 @@ const URL = require('url');
 
 const HOST = 'http://music.163.com';
 
-let _cookie = 'aa';
+let _cookie = '';
 
 /**
  * 自定义的 http 请求

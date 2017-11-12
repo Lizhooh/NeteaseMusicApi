@@ -112,7 +112,7 @@ module.exports.lyric = function lyric(id) {
  * @returns{Promise}
  */
 module.exports.commentMusic = function commentMusic(id, limit = 30, offset = 0) {
-    return post(`/weapi/v1/resource/comments/R_SO_4_${rid}/?csrf_token=`, {
+    return post(`/weapi/v1/resource/comments/R_SO_4_${id}`, {
         data: {
             rid: id,
             limit,
@@ -148,7 +148,7 @@ module.exports.commentAlbum = function commentAlbum(id, limit = 30, offset = 0) 
  * @returns{Promise}
  */
 module.exports.commentPlaylist = function commentPlaylist(id, limit = 30, offset = 0) {
-    return post(`/weapi/v1/resource/comments/A_PL_0_${id}/?csrf_token=`, {
+    return post(`/weapi/v1/resource/comments/A_PL_0_${id}`, {
         data: {
             rid: id,
             offset,
@@ -166,7 +166,7 @@ module.exports.commentPlaylist = function commentPlaylist(id, limit = 30, offset
  * @returns{Promise}
  */
 module.exports.commentMv = function commentMv(id, limit = 30, offset = 0) {
-    return post(`/weapi/v1/resource/comments/R_MV_5_${id}/?csrf_token=`, {
+    return post(`/weapi/v1/resource/comments/R_MV_5_${id}`, {
         data: {
             rid: id,
             offset,
@@ -212,8 +212,10 @@ module.exports.album = function album(id) {
  * @returns{Promise}
  */
 module.exports.artists = function artists(id, limit = 20, offset = 0) {
-    return post(`/weapi/v1/artist/${id}?offset=${offset}&limit=${limit}`, {
+    return post(`/weapi/v1/artist/${id}`, {
         data: {
+            offset,
+            limit,
             csrf_token: ''
         }
     });
